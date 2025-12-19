@@ -1,0 +1,63 @@
+:root {
+  --primary: #CC2454;
+  --secondary: #EC646C;
+  --background: #131213;
+  --surface: #4C2C34;
+  --border: #81142C;
+  --text-muted: #BDB7B9;
+}
+
+body {
+  background: var(--background);
+  color: white;
+  font-family: system-ui, sans-serif;
+}
+
+.app {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 0 40px rgba(204, 36, 84, 0.25);
+}
+
+h1 {
+  color: var(--primary);
+}
+
+p {
+  color: var(--text-muted);
+}
+.search-bar{
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.search-bar input{
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.search-bar button{
+  background: var(--primary);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.loading{
+  color: var(--text-muted);
+}
