@@ -5,7 +5,7 @@ export default function WeatherCard({ data }) {
   const [isCelsius, setIsCelsius] = useState(true);
 
   // Conversion helper
-  const temp = isCelsius
+    const temp = isCelsius
     ? Math.round(data.main.temp)           // Celsius from API
     : Math.round((data.main.temp * 9) / 5 + 32); // Fahrenheit
 

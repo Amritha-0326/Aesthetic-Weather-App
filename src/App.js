@@ -6,7 +6,7 @@ import clouds from "./assets/pixelated-pink-cloud-art.png";
 import "./App.css";
 
 export default function App() {
-  const [city, setCity] = useState("London");
+  const [city, setCity] = useState("Berlin");
   const { data, loading, error } = useWeather(city);
 
   // ← Move these inside the component

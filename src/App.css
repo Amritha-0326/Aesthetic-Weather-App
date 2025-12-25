@@ -41,14 +41,16 @@ body {
 .search-bar{
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 5px;
+  margin-left: 5px;
   font-family: 'Pixelify Sans', monospace;
   font-size: 14px;
+  justify-content: center;
 }
 
 .search-bar input{
   background: var(--surface);
-  border: 1px solid var(--border);
+  border: 1px solid var(--window-bg);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -57,11 +59,12 @@ body {
 }
 
 .search-bar button{
-  background: var(--primary);
+  background: var(--window-bg);
   border: none;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 8px;
+  font-family: 'Pixelify Sans', monospace;
   cursor: pointer;
 }
 
@@ -77,7 +80,7 @@ body {
 }
 
 .weather-window {
-  width: 300px;
+  width: 310px;
   background: var(--window-bg);
   border: 3px solid var(--window-border);
   border-radius: 10px;
@@ -99,7 +102,7 @@ body {
 
 .window-content {
   position: relative;
-  height: 200px;
+  height: 250px;
   background: var(--content-bg);
   overflow: hidden;
 }
@@ -111,6 +114,7 @@ body {
   text-align: center;
   padding-top: 40px;
   color: var(--title-text);
+  align-items: center;
 }
 
 .temp {
