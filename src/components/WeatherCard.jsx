@@ -1,10 +1,13 @@
 export default function WeatherCard({ data }) {
-    return (
-      <div className="card">
-        <h2>{data.name}</h2>
-        <h1>{Math.round(data.main.temp)}°C</h1>
-        <p>{data.weather[0].description}</p>
+  return (
+    <>
+      <div className="temp">
+        <h3>{data.name}</h3>
+        {Math.round(data.main.temp)}°C
       </div>
-    );
-  }
-  
+      <div className="desc">
+        {data.weather[0].description}
+      </div>
+    </>
+  );
+}
