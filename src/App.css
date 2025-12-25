@@ -23,7 +23,6 @@ body {
 
 
 }
-
 .app {
   min-height: 100vh;
   display: grid;
@@ -147,17 +146,43 @@ body {
   color: var(--title-text);
 }
 
+
 .window-buttons {
   display: flex;
-  gap: 4px;
+  gap: 6px;
 }
 
-.window-buttons div {
-  width: 10px;
-  height: 10px;
-  border: 2px solid var(--window-border);
-  background: #e9edff;
+.window-btn {
+  width: 14px;
+  height: 14px;
+
+  background: #b7c4ee;
+  border: 2px solid #9aa7d6;
+
+  color: #9aa7d6; 
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  line-height: 10px;
+  /* #9aa7d6 */
+
+  padding: 0;
+  cursor: pointer;
+  image-rendering: pixelated;
 }
+
+.window-btn:active {
+  transform: translate(1px, 1px);
+}
+
+/* Optional hover cues */
+.window-btn.minimize:hover {
+  background: #cfd9f6;
+}
+
+.window-btn.close:hover {
+  background: #cfd9f6;
+}
+
 
 .clouds {
   position: absolute;
@@ -208,17 +233,25 @@ body {
 
 .floating-cloud {
   position: absolute;
-  bottom: 80px;        /* height above ground clouds */
-  right: -120px;       /* start off-screen */
+  bottom: 80px;
   width: 120px;
-
   image-rendering: pixelated;
   pointer-events: none;
 
-  animation:
-    cloud-move 25s linear infinite,
-    cloud-float 4s ease-in-out infinite;
+  animation: cloud-move 25s linear infinite,
+             cloud-float 4s ease-in-out infinite;
 }
+
+.cloud1 {
+  right: -120px;  /* start off-screen */
+  animation-delay: 0s;
+}
+
+.cloud2 {
+  right: -120px;
+  animation-delay: 12.5s; /* half of cloud-move duration */
+}
+
 @keyframes cloud-move {
   from {
     transform: translateX(0);
@@ -230,6 +263,6 @@ body {
 
 @keyframes cloud-float {
   0%   { margin-bottom: 0; }
-  50%  { margin-bottom: 6px; }
+  50%  { margin-bottom: 10px; }
   100% { margin-bottom: 0; }
 }
