@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function WeatherCard({ data }) {
   // State to track whether temperature is Celsius or Fahrenheit
   const [isCelsius, setIsCelsius] = useState(true);
-
+  if (!data || !data.main || !data.weather) return null;
   // Conversion helper
     const temp = isCelsius
     ? Math.round(data.main.temp)           // Celsius from API

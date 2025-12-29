@@ -3,6 +3,7 @@ import { useWeather } from "./hooks/useWeather";
 import SearchBar from "./components/SearchBar";
 import WeatherCard from "./components/WeatherCard";
 import clouds from "./assets/pixelated-pink-cloud-art.png";
+import sadCloud from "./assets/sad-cloud.png";
 import "./App.css";
 
 export default function App() {
@@ -36,8 +37,18 @@ export default function App() {
               <div className="weather-info">
                 <SearchBar onSearch={setCity} />
                 {loading && <p>Loading...</p>}
-                {error && <p>{error}</p>}
-                {data && <WeatherCard data={data} />}
+                {error && (
+                <div className="error">
+                  <img
+                    src={sadCloud}
+                    alt="sad cloud"
+                    className="error-cloud"
+                  />
+                  <p>City not found</p>
+                </div>
+)}
+
+                {data && data.main && !error && <WeatherCard data={data} />}
               </div>
               <div className="clouds"></div>
             </div>

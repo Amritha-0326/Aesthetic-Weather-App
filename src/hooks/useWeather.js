@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 export function useWeather(city) {
@@ -8,7 +9,6 @@ export function useWeather(city) {
 
   useEffect(() => {
     if (!city) return;
-    console.log(process.env.REACT_APP_API_KEY);
 
     setLoading(true);
     setError(null);
@@ -16,14 +16,23 @@ export function useWeather(city) {
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`
     )
-      .then(res => res.json())
-      .then(setData)
-      // .catch(() => setError("Could not fetch weather"))
-      .catch((err) =>{
-        console.error("Weather fetch error : ", err);
-        setError(err.message);
+      .then(res => {
+        if (!res.ok) {
+          throw new Error("City not found");
+        }
+        return res.json();
       })
-      .finally(() => setLoading(false));
+      .then(json => {
+        setData(json);
+      })
+      .catch(err => {
+        console.error("Weather fetch error:", err);
+        setError(err.message);
+        setData(null);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [city]);
 
   return { data, loading, error };
